@@ -25,3 +25,30 @@ const text = [
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
+
+// aggiungo contenuto html con un ciclo for
+
+const imagesCont = document.querySelector(".images");
+const thumbsCont = document.querySelector(".thumbs");
+
+for (let i = 0; i < items.length; i++)  {
+
+    imagesCont.innerHTML += `
+    <div class="image">
+        <img src="${items[i]}" alt="">
+        <h3>
+            ${title[i]}
+        </h3>
+        <p>
+            ${text[i]}
+        </p>
+    </div>
+    `;
+
+    thumbsCont.innerHTML +=`
+    <div class="thumb">
+        <img src="${items[i]}" alt="">
+    </div>
+    `;
+}
+
