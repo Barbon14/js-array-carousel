@@ -28,20 +28,22 @@ const text = [
 
 // aggiungo contenuto html con un ciclo for
 
-const imagesCont = document.querySelector(".images");
-const thumbsCont = document.querySelector(".thumbs");
+const imagesCont = document.querySelector(".images-container");
+const thumbsCont = document.querySelector(".thumbs-container");
 
 for (let i = 0; i < items.length; i++)  {
 
     imagesCont.innerHTML += `
     <div class="image">
         <img src="${items[i]}" alt="">
-        <h3>
-            ${title[i]}
-        </h3>
-        <p>
-            ${text[i]}
-        </p>
+        <div class="text">
+            <h3>
+                ${title[i]}
+            </h3>
+            <p>
+                ${text[i]}
+            </p>
+        </div>
     </div>
     `;
 
