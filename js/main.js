@@ -54,3 +54,57 @@ for (let i = 0; i < items.length; i++)  {
     `;
 }
 
+// aggiungo la classe active alla prima immagine e alla prima thumbnail
+document.getElementsByClassName("image")[0].classList.add("active");
+document.getElementsByClassName("thumb")[0].classList.add("active");
+
+// al click delle freccie cambio posizione alla classe active
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+// imposto una variabile per la posizione dell'active
+let activePosition = 0; 
+
+next.addEventListener ('click',
+    
+    function () {
+        
+        // incremento la variabile di posizione ad ogni click
+        activePosition++;
+
+        // se la variabile di posizone raggiunge l'ultimo elemento dell'array riparto da 0
+        if (activePosition === items.length) {
+            activePosition = 0;
+        }
+
+        // immmagini
+        document.querySelector(".image.active").classList.remove("active");
+        document.getElementsByClassName("image")[activePosition].classList.add("active");
+
+        // thumnails
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[activePosition].classList.add("active");
+    }
+)
+
+prev.addEventListener('click',
+
+    function () {
+
+        // se la variabile di posizione è uguale a 0 parto dall' ultimo elemento dell'array
+        if (activePosition === 0) {
+            activePosition = items.length;
+        }
+
+        // decremento la variabile di posizione ad ogni click
+        activePosition--;
+
+        // immmagini
+        document.querySelector(".image.active").classList.remove("active");
+        document.getElementsByClassName("image")[activePosition].classList.add("active");
+
+        // thumnails
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[activePosition].classList.add("active");
+    }
+)
